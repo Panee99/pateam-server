@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="EfCoreDialogsState">
+    <option name="keyValueStorage">
+      <map>
+        <entry key="Common:48c58519-2e94-46d7-a868-c4eb2577b19e:dbContext" value="Duende.IdentityServer.EntityFramework.DbContexts.ConfigurationDbContext`1" />
+        <entry key="Common:a2496892-ce9a-471a-95e5-2fadfd01f086:dbContext" value="Infrastructure.Persistence.AppDbContext" />
+        <entry key="Common:buildConfiguration" value="Debug" />
+        <entry key="Common:noBuild" value="false" />
+        <entry key="Common:outputFolder" value="Migrations" />
+        <entry key="Common:useDefaultConnection" value="true" />
+      </map>
+    </option>
+  </component>
+</project>
