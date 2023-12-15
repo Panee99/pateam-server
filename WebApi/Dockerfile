@@ -1,20 +1,19 @@
 # https://hub.docker.com/_/microsoft-dotnet
 FROM mcr.microsoft.com/dotnet/sdk:6.0 AS build
-WORKDIR /source
+WORKDIR /src
 
 # copy csproj and restore as distinct layers
-COPY *.sln .
-COPY aspnetapp/*.csproj ./aspnetapp/
+COPY WebApi/WebApi.csproj .
 RUN dotnet restore
 
 # copy everything else and build app
-COPY aspnetapp/. ./aspnetapp/
-WORKDIR /source/aspnetapp
-RUN dotnet publish -c release -o /app --no-restore
+COPY . .
+WORKDIR /src/WebApi
+RUN dotnet publish "WebApi.csproj" -c release -o /app/publish
 
 # final stage/image
 FROM mcr.microsoft.com/dotnet/aspnet:6.0
 WORKDIR /app
 EXPOSE 5000
-COPY --from=build /app ./
-ENTRYPOINT ["dotnet", "aspnetapp.dll"]
+COPY . /app/publish
+ENTRYPOINT ["dotnet", "WebApi.dll"]
